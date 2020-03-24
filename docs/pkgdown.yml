@@ -3,4 +3,7 @@ pkgdown: 1.4.1
 pkgdown_sha: ~
 articles:
   tutorial: tutorial.html
+urls:
+  reference: https://matthieu-bruneaux.github.io/minimal-R-pkg-github/index.html/reference
+  article: https://matthieu-bruneaux.github.io/minimal-R-pkg-github/index.html/articles
 
