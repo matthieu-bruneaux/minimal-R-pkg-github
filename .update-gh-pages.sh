@@ -15,11 +15,7 @@ git config user.name "$GITHUB_ACTOR"
 git config user.email "${GITHUB_ACTOR}@bots.github.com"
 
 git checkout "$main_branch"
-git branch -D "$target_branch"
-if [ $? -ne 0 ]; then
-    echo "gh-pages branch did not exist."
-fi
-git branch -c "$target_branch"
+git branch -D "$target_branch" && git branch "$target_branch"
 git checkout "$target_branch"
 
 # Remove all non-docs files
