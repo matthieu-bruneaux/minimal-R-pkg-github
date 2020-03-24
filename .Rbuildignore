@@ -1,0 +1,5 @@
+^.*\.Rproj$
+^Makefile$
+^.run_check_and_get_badge.R$
+^R-CMD-check_badge.svg$
+^R-CMD-check_output.txt$
