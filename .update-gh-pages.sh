@@ -1,12 +1,13 @@
 # https://www.innoq.com/en/blog/github-actions-automation/
 
+# This script assumes that "make pkgdown" has been run before.
+
 set -eu
 
 repo_uri="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
 remote_name="origin"
 main_branch="master"
 target_branch="gh-pages"
-build_dir="docs"
 
 cd "$GITHUB_WORKSPACE"
 
@@ -16,8 +17,6 @@ git config user.email "${GITHUB_ACTOR}@bots.github.com"
 git checkout "$target_branch"
 git rebase "${remote_name}/${main_branch}"
 
-rm -fr docs/
-make pkgdown
 # Remove all non-docs files
 rm -fr man/ R/ tests/ vignettes/
 rm -f DESCRIPTION Makefile NAMESPACE _pkgdown.yml README.md

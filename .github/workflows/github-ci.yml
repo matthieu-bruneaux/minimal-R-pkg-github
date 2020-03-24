@@ -1,6 +1,9 @@
-# Resources:
+### * Resources:
+
 # - https://github.com/maxheld83/ghactions
 # - https://github.com/r-lib/actions/tree/master/examples
+
+### * Setup
 
 name: Full build, test and publish
 on:
@@ -8,10 +11,23 @@ on:
     branches:
       - master
 
+### * Jobs
+      
 jobs:
 
+### ** build
+  
   build:
-    name: Build, test and publish
+    runs-on: ubuntu-latest
+    container: rocker/verse
+    steps:
+      - uses: actions/checkout@v1
+      - name: Build the package
+        run: make install
+
+### ** test
+          
+  test:
     runs-on: ubuntu-latest
     container: rocker/verse
     steps:
@@ -20,11 +36,33 @@ jobs:
         run: make install
       - name: Test the package
         run: make test
-      - name: R CMD check
+
+### ** check
+        
+  check:
+    runs-on: ubuntu-latest
+    container: rocker/verse
+    steps:
+      - uses: actions/checkout@v1
+      - name: Build the package
+        run: make install
+      - name: Check the package (R CMD check)
         run: make check
-      - name: Build pkgdown website
+
+### ** pkgdown
+        
+  pkgdown:
+    runs-on: ubuntu-latest
+    container: rocker/verse
+    steps:
+      - uses: actions/checkout@v1
+      - name: Build the package
+        run: make install
+      - name: Build the pkgdown website
         run: make pkgdown
       - name: Update gh-pages
         run: bash .update-gh-pages.sh
         env:
           GITHUB_TOKEN: ${{ secrets.github_token }}
+    
+    
