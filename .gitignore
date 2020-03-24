@@ -3,3 +3,4 @@
 .Rproj.user
 R-CMD-check_badge.svg
 R-CMD-check_output.txt
+docs/

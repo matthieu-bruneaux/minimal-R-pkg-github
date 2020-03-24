@@ -60,7 +60,7 @@ onlyinstall:
 .PHONY: test
 test:
 	@printf "\n"
-	@printf "$(GREEN)*** Running package tests ***$(NC)\n"
+	@printf "$(GREEN)=== Running package tests ===$(NC)\n"
 	@printf "\n"
 	@Rscript -e "library(devtools); test()"
 	@cd tests/testthat; rm -f Rplots.pdf
@@ -71,7 +71,7 @@ test:
 .PHONY: check
 check:
 	@printf "\n"
-	@printf "$(GREEN)*** Running 'devtools::check()' ***$(NC)\n"
+	@printf "$(GREEN)=== Running 'devtools::check()' ===$(NC)\n"
 	@printf "\n"
 	@Rscript .run_check_and_get_badge.R
 
@@ -81,7 +81,7 @@ check:
 .PHONY: pkgdown
 pkgdown: document
 	@printf "\n"
-	@printf "$(GREEN)*** Building the package website with pkgdown ***$(NC)\n"
+	@printf "$(GREEN)=== Building the package website with pkgdown ===$(NC)\n"
 	@printf "\n"
 	@Rscript -e 'pkgdown::build_site()'
 
