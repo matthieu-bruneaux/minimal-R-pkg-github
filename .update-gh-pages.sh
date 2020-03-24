@@ -22,6 +22,8 @@ git checkout "$target_branch"
 rm -fr man/ R/ tests/ vignettes/
 rm -f DESCRIPTION Makefile NAMESPACE _pkgdown.yml README.md
 # Move docs to the root folder
+ls
+tree
 mv docs/* .
 rm -fr docs/
 # Prepare the commit
