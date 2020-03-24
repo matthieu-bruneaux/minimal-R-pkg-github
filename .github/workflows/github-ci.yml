@@ -24,6 +24,11 @@ jobs:
         run: make check
       - name: Build pkgdown website
         run: make pkgdown
+      - name: Upload artifacts
+        uses: actions/upload-artifact@master
+        with:
+          name: docs
+          path: docs/
 
           
         
