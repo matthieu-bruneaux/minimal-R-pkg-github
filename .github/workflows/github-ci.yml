@@ -16,7 +16,7 @@ jobs:
       - name: Get the rocker image
         uses: docker://rocket/verse
       - name: Check out my own repository
-        uses: actions/checkout
+        uses: actions/checkout@v2
       - name: Build the package
         run: |
           make install
