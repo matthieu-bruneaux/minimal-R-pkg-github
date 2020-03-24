@@ -14,8 +14,13 @@ cd "$GITHUB_WORKSPACE"
 git config user.name "$GITHUB_ACTOR"
 git config user.email "${GITHUB_ACTOR}@bots.github.com"
 
+git checkout "$main_branch"
+git branch -D "$target_branch"
+if [ $? -ne 0 ]; then
+    echo "gh-pages branch did not exist."
+fi
+git branch -c "$target_branch"
 git checkout "$target_branch"
-git rebase "${remote_name}/${main_branch}"
 
 # Remove all non-docs files
 rm -fr man/ R/ tests/ vignettes/
@@ -33,4 +38,4 @@ if [ $? -ne 0 ]; then
 fi
 
 git remote set-url "$remote_name" "$repo_uri"
-git push --force-with-lease "$remote_name" "$target_branch"
+git push --force "$remote_name" "$target_branch"
