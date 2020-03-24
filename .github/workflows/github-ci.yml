@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     container: rocker/verse
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
       - name: Build the package
         run: make install
       - name: Test the package
