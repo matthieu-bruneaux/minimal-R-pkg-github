@@ -8,7 +8,7 @@ TOP_DIR=$(shell git rev-parse --show-toplevel)
 # https://en.wikipedia.org/wiki/ANSI_escape_code
 RED = "\\033[31m"
 GREEN = "\\033[92m"
-BLUE = "\\033[34m"
+BLUE = "\\033[94m"
 YELLOW = "\\033[33m"
 NC = "\\033[0m"
 
@@ -31,7 +31,7 @@ help: Makefile
 .PHONY: document
 document:
 	@printf "\n"
-	@printf "$(GREEN)*** Generating package documentation with roxygen2 ***$(NC)\n"
+	@printf "$(GREEN)=== Generating package documentation with roxygen2 ===$(NC)\n"
 	@printf "\n"
 	@Rscript -e 'devtools::document()'
 
@@ -41,7 +41,7 @@ document:
 .PHONY: install
 install: document onlyinstall
 	@printf "\n"
-	@printf "$(GREEN)*** Package installed ***$(NC)\n"
+	@printf "$(GREEN)=== Package installed ===$(NC)\n"
 	@printf "\n"
 
 ### ** onlyinstall
@@ -50,7 +50,7 @@ install: document onlyinstall
 .PHONY: onlyinstall
 onlyinstall:
 	@printf "\n"
-	@printf "$(GREEN)*** Installing the package ***$(NC)\n"
+	@printf "$(GREEN)=== Installing the package ===$(NC)\n"
 	@printf "\n"
 	@Rscript -e 'devtools::install()'
 
