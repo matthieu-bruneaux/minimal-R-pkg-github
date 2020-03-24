@@ -28,12 +28,3 @@ jobs:
         run: bash .update-gh-pages.sh
         env:
           GITHUB_TOKEN: ${{ secrets.github_token }}
-      - name: Upload artifacts
-        uses: actions/upload-artifact@master
-        with:
-          name: docs
-          path: docs/
-
-          
-        
-
