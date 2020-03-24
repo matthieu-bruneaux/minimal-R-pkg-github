@@ -11,15 +11,20 @@ on:
 jobs:
 
   build:
-    name: Build the package
+    name: Build, test and publish
     runs-on: ubuntu-latest
     container: rocker/verse
     steps:
-      - name: Check out my own repository
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
       - name: Build the package
-        run: |
-          make install
+        run: make install
+      - name: Test the package
+        run: make test
+      - name: R CMD check
+        run: make check
+      - name: Build pkgdown website
+        run: make pkgdown
+
           
         
 
