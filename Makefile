@@ -44,7 +44,7 @@ install: document onlyinstall
 	@printf "$(GREEN)=== Package installed ===$(NC)\n"
 	@printf "\n"
 
-### ** onlyinstall
+### ** [onlyinstall]
 
 ##onlyinstall : only install the package (no "document")
 .PHONY: onlyinstall
