@@ -1,5 +1,6 @@
 # Resources:
 # - https://github.com/maxheld83/ghactions
+# - https://github.com/r-lib/actions/tree/master/examples
 
 name: Full build, test and publish
 on:
@@ -12,9 +13,8 @@ jobs:
   build:
     name: Build the package
     runs-on: ubuntu-latest
+    container: rocker/verse
     steps:
-      - name: Get the rocker image
-        uses: docker://rocker/verse
       - name: Check out my own repository
         uses: actions/checkout@v2
       - name: Build the package
