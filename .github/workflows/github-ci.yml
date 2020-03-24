@@ -24,6 +24,10 @@ jobs:
         run: make check
       - name: Build pkgdown website
         run: make pkgdown
+      - name: Update gh-pages
+        run: bash .update-gh-pages.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.github_token }}
       - name: Upload artifacts
         uses: actions/upload-artifact@master
         with:
