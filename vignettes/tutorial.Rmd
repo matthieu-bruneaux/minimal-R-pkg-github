@@ -1,0 +1,28 @@
+---
+title: "A short tutorial"
+date: "`r Sys.Date()`"
+vignette: >
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteIndexEntry{A short tutorial}
+---
+
+```{r include = FALSE}
+knitr::opts_chunk$set(fig.align = "center", fig.width = 5, fig.height = 5)
+options(scipen = 6, width = 85)
+set.seed(4)
+```
+
+This is a short tutorial to learn how to use the `minpkg` package.
+
+# Calculating square roots
+
+You can calculate square roots using the `mysqrt()` function:
+
+```{r }
+library(minpkg)
+x <- 1:10
+y <- mysqrt(x)
+plot(x, y, pch = 19, col = "magenta", las = 1, asp = 1)
+abline(0, 1, col = "grey")
+```
