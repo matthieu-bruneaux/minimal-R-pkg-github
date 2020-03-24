@@ -1,0 +1,24 @@
+# Resources:
+# - https://github.com/maxheld83/ghactions
+
+name: Full build, test and publish
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+
+  build:
+    name: Build the package
+    steps:
+      - name: Get the rocker image
+        uses: docker://rocket/verse
+      - name: Check out my own repository
+        uses: actions/checkout
+      - name: Build the package
+        run: |
+          make install
+          
+        
+
