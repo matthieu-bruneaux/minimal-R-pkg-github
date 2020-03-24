@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get the rocker image
-        uses: docker://rocket/verse
+        uses: docker://rocker/verse
       - name: Check out my own repository
         uses: actions/checkout@v2
       - name: Build the package
