@@ -18,7 +18,14 @@ git rebase "${remote_name}/${main_branch}"
 
 rm -fr docs/
 make pkgdown
-git add --force docs/
+# Remove all non-docs files
+rm -fr man/ R/ tests/ vignettes/
+rm -f DESCRIPTION Makefile NAMESPACE _pkgdown.yml README.md
+# Move docs to the root folder
+mv docs/* .
+rm -fr docs/
+# Prepare the commit
+git add --force .
 
 git commit -m "Updated GitHub pages"
 if [ $? -ne 0 ]; then
