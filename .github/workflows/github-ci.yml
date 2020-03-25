@@ -80,7 +80,7 @@ jobs:
       - run: rm -fr ./*
       - uses: actions/download-artifact@v1
         with:
-          name: docs/
+          name: pkgdown-docs
       - run: bash .update-gh-pages.sh
       - run: git commit -m "Update gh-pages"
         env:
