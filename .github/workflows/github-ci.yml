@@ -82,6 +82,5 @@ jobs:
         with:
           name: pkgdown-docs
       - run: bash .update-gh-pages.sh
-      - run: git commit -m "Update gh-pages"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
