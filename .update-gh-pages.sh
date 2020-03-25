@@ -1,6 +1,7 @@
 # Modified from https://www.innoq.com/en/blog/github-actions-automation/
 
 set -eu
+echo "Starting bash script"
 
 repo_uri="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
 

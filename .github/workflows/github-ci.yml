@@ -62,7 +62,9 @@ jobs:
       - name: Build the package
         run: make install
       - name: Build the pkgdown website
-        run: make pkgdown
+        run: |
+          make pkgdown
+          cp .update-gh-pages.sh docs/
       - name: Upload artifacts
         uses: actions/upload-artifact@v1
         with:
@@ -77,10 +79,20 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - run: git checkout gh-pages
-      - run: rm -fr ./*
+      - run: |
+          pwd
+          ls
+          rm -fr ./*
+          ls
+          git branch -a
       - uses: actions/download-artifact@v1
         with:
           name: pkgdown-docs
-      - run: bash .update-gh-pages.sh
+      - run: |
+          pwd
+          ls
+          git branch -a
+          cat .update-gh-pages.sh
+          bash .update-gh-pages.sh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
