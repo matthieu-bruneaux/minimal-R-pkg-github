@@ -37,6 +37,15 @@ jobs:
         run: make install
       - name: Test the package
         run: make test
+      - name: Determine coverage
+        run: |
+          make coverage
+          mv docs/coverage .
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v1
+        with:
+          name: test-coverage
+          path: ./coverage/
 
 ### ** check
         
@@ -65,6 +74,12 @@ jobs:
         run: |
           make pkgdown
           cp .update-gh-pages.sh docs/
+      - uses: actions/download-artifact@v1
+        with:
+          name: test-coverage
+          path: ./coverage
+      - name: Add coverage results
+        run: mv coverage/ docs/          
       - name: Upload artifacts
         uses: actions/upload-artifact@v1
         with:

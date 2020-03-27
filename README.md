@@ -4,6 +4,10 @@ This repository contains a minimal setup to write R packages locally and share t
 
 The R package installed by this repository is called `minpkg`.
 
+# Coverage
+
+Coverage results are available [here](coverage/coverage.html).
+
 # TODO
 
 Add badges and set up coverage.
