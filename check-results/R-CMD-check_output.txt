@@ -4,3 +4,9 @@
 
 * NOTES
 
+**  checking for hidden files and directories ... NOTE
+Found the following hidden files and directories:
+  .run_covr_and_get_badge.R
+These were most likely included in error. See section ‘Package
+structure’ in the ‘Writing R Extensions’ manual. 
+
