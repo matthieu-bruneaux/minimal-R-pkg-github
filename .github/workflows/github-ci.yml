@@ -5,7 +5,7 @@
 
 ### * Setup
 
-name: Full build, test and publish
+name: pipeline
 on:
   push:
     branches:
@@ -58,7 +58,16 @@ jobs:
       - name: Build the package
         run: make install
       - name: Check the package (R CMD check)
-        run: make check
+        run: |
+          make check
+          mkdir -p check-results/
+          mv R-CMD-check_badge.svg R-CMD-check_output.txt check-results/
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v1
+        with:
+          name: check-results
+          path: ./check-results/
+          
 
 ### ** pkgdown
         
@@ -79,7 +88,13 @@ jobs:
           name: test-coverage
           path: ./coverage
       - name: Add coverage results
-        run: mv coverage/ docs/          
+        run: mv coverage/ docs/
+      - uses: actions/download-artifact@v1
+        with:
+          name: check-results
+          path: ./check-results
+      - name: Add check results
+        run: mv check-results/ docs/
       - name: Upload artifacts
         uses: actions/upload-artifact@v1
         with:
