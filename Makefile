@@ -85,7 +85,7 @@ coverage:
 	@printf "\n"
 	@mkdir -p docs/coverage/
 	@Rscript .run_covr_and_get_badge.R
-	@mv coverage_badge.svg doc/coverage/
+	@mv coverage_badge.svg docs/coverage/
 
 ### ** pkgdown
 
