@@ -1,4 +1,5 @@
-![pipeline](https://github.com/matthieu-bruneaux/minimal-R-pkg-github/workflows/pipeline/badge.svg)
+[![pipeline](https://github.com/matthieu-bruneaux/minimal-R-pkg-github/workflows/pipeline/badge.svg)](https://github.com/matthieu-bruneaux/minimal-R-pkg-github/actions)
+[![coverage(https://matthieu-bruneaux.github.io/minimal-R-pkg-github/coverage/coverage_badge.svg)](https://matthieu-bruneaux.github.io/minimal-R-pkg-github/coverage/coverage.html)
 [![R_CMD_CHECK](https://matthieu-bruneaux.github.io/minimal-R-pkg-github/check-results/R-CMD-check_badge.svg)](https://matthieu-bruneaux.github.io/minimal-R-pkg-github/check-results/R-CMD-check_output.txt)
 [![Lifecycle Status](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/)
 

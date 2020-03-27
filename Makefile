@@ -84,7 +84,8 @@ coverage:
 	@printf "$(GREEN)=== Determining test coverage ===$(NC)\n"
 	@printf "\n"
 	@mkdir -p docs/coverage/
-	@Rscript -e "library(covr); cov = package_coverage(); report(cov, \"$(TOP_DIR)/docs/coverage/coverage.html\"); print(paste(\"Coverage_percent: --\", round(percent_coverage(cov), 2), \"--\"))"
+	@Rscript .run_covr_and_get_badge.R
+	@mv coverage_badge.svg doc/coverage/
 
 ### ** pkgdown
 

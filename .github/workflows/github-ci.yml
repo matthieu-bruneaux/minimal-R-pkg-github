@@ -39,6 +39,7 @@ jobs:
         run: make test
       - name: Determine coverage
         run: |
+          R -e 'install.packages("here")'
           make coverage
           mv docs/coverage .
       - name: Upload artifacts
